@@ -1,23 +1,40 @@
+/* =========================================================
+   UAMD — SEKRETARITË MËSIMORE
+   CLEAN RESPONSIVE STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
   --navy: #082f63;
   --navy-dark: #06264f;
   --navy-light: #0e4f97;
+
   --gold: #c79a43;
 
   --text: #172a45;
   --muted: #66758a;
 
-  --line: #dfe6ef;
   --white: #ffffff;
-  --bg: #f6f8fb;
+  --page-bg: #f5f8fc;
+  --soft-blue: #f7faff;
 
-  --shadow: 0 12px 28px rgba(8, 47, 99, 0.08);
+  --line: #dfe6ef;
+
+  --shadow-small:
+    0 6px 20px rgba(8, 47, 99, 0.05);
+
+  --shadow-medium:
+    0 12px 30px rgba(8, 47, 99, 0.09);
 }
 
 
-/* ========================================
+/* =========================================================
    RESET
-   ======================================== */
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -29,9 +46,14 @@ html {
 
 body {
   margin: 0;
+
   font-family: "Inter", Arial, sans-serif;
+
   color: var(--text);
+
   background: var(--white);
+
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -44,22 +66,25 @@ button {
 }
 
 
-/* ========================================
+/* =========================================================
    GLOBAL CONTAINER
-   ======================================== */
+   ========================================================= */
 
 .container {
   width: min(1500px, calc(100% - 56px));
-  margin: 0 auto;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
-/* ========================================
+/* =========================================================
    HEADER
-   ======================================== */
+   ========================================================= */
 
 .site-header {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.98);
+
   border-bottom: 1px solid var(--line);
 }
 
@@ -70,7 +95,7 @@ button {
   align-items: center;
   justify-content: space-between;
 
-  gap: 30px;
+  gap: 32px;
 }
 
 
@@ -80,7 +105,9 @@ button {
   display: flex;
   align-items: center;
 
-  gap: 11px;
+  gap: 12px;
+
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -126,7 +153,7 @@ button {
   display: flex;
   align-items: center;
 
-  gap: 30px;
+  gap: 28px;
 }
 
 .desktop-nav a {
@@ -138,7 +165,8 @@ button {
 
   letter-spacing: 0.01em;
 
-  transition: 0.2s;
+  transition:
+    color 0.2s ease;
 }
 
 .desktop-nav a:hover {
@@ -146,9 +174,9 @@ button {
 }
 
 
-/* ========================================
+/* =========================================================
    HERO
-   ======================================== */
+   ========================================================= */
 
 .hero {
   position: relative;
@@ -171,26 +199,47 @@ button {
     );
 }
 
+
+/* subtle decorative circles */
+
+.hero::before,
 .hero::after {
   content: "";
 
   position: absolute;
 
-  right: -150px;
-  top: -220px;
+  border-radius: 50%;
 
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 420px;
+  height: 420px;
+
+  right: 110px;
+  top: -240px;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.hero::after {
   width: 620px;
   height: 620px;
 
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 50%;
+  right: -180px;
+  top: -225px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .hero-content {
   position: relative;
+
   z-index: 2;
 
-  padding: 58px 0;
+  padding-top: 58px;
+  padding-bottom: 58px;
 }
 
 .eyebrow {
@@ -206,14 +255,18 @@ button {
 }
 
 .hero h1 {
+  max-width: 950px;
+
   margin: 0 0 18px;
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: clamp(54px, 5vw, 76px);
   font-weight: 600;
 
-  letter-spacing: -0.035em;
   line-height: 1;
+
+  letter-spacing: -0.035em;
 }
 
 .hero p {
@@ -221,16 +274,16 @@ button {
 
   margin: 0;
 
-  color: rgba(255,255,255,.92);
+  color: rgba(255, 255, 255, 0.92);
 
   font-size: 18px;
   line-height: 1.65;
 }
 
 
-/* ========================================
-   SECTION LABEL
-   ======================================== */
+/* =========================================================
+   GENERAL SECTION LABEL
+   ========================================================= */
 
 .section-label {
   display: flex;
@@ -253,21 +306,26 @@ button {
   width: 32px;
   height: 3px;
 
+  flex: 0 0 32px;
+
   border-radius: 10px;
 
   background: var(--gold);
 }
 
 
-/* ========================================
+/* =========================================================
    FACULTY SELECTOR
-   ======================================== */
+   ========================================================= */
 
 .faculty-section {
-  padding: 40px 0 28px;
+  padding-top: 40px;
+  padding-bottom: 28px;
 }
 
 .faculty-tabs {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
@@ -281,6 +339,9 @@ button {
   border-radius: 18px;
 
   background: var(--white);
+
+  box-shadow:
+    0 5px 20px rgba(8, 47, 99, 0.03);
 }
 
 .faculty-tab {
@@ -300,7 +361,10 @@ button {
 
   cursor: pointer;
 
-  transition: 0.2s;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .faculty-tab:last-child {
@@ -341,24 +405,30 @@ button {
 .faculty-tab span {
   display: block;
 
-  max-width: 200px;
-  margin: 0 auto;
+  max-width: 210px;
+
+  margin-left: auto;
+  margin-right: auto;
 
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.5;
+
+  line-height: 1.45;
 }
 
 
-/* ========================================
+/* =========================================================
    FACULTY WORKSPACE
-   ======================================== */
+   ========================================================= */
 
 .faculty-workspace {
   width: min(1600px, calc(100% - 40px));
-  margin: 0 auto;
 
-  padding: 25px 0 65px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 25px;
+  padding-bottom: 70px;
 }
 
 .faculty-heading {
@@ -374,20 +444,28 @@ button {
   width: 74px;
   height: 74px;
 
-  flex-shrink: 0;
+  flex: 0 0 74px;
 
   display: grid;
   place-items: center;
 
   border-radius: 16px;
 
-  background: var(--navy);
+  background:
+    linear-gradient(
+      145deg,
+      var(--navy),
+      #10447f
+    );
 
   color: var(--white);
 
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(8, 47, 99, 0.15);
 }
 
 .faculty-heading h2 {
@@ -396,17 +474,22 @@ button {
   color: var(--text);
 
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(34px, 3vw, 46px);
+
+  font-size:
+    clamp(34px, 3vw, 46px);
+
   font-weight: 600;
+
+  line-height: 1.12;
 
   letter-spacing: -0.025em;
 }
 
 
-/* ========================================
-   3 COLUMNS
-   BACHELOR | SECRETARIAT | MASTER
-   ======================================== */
+/* =========================================================
+   MAIN 3 COLUMN LAYOUT
+   BACHELOR | STAFF | MASTER
+   ========================================================= */
 
 .faculty-main-grid {
   width: 100%;
@@ -415,7 +498,7 @@ button {
 
   grid-template-columns:
     minmax(290px, 0.78fr)
-    minmax(650px, 2fr)
+    minmax(640px, 2fr)
     minmax(290px, 0.78fr);
 
   gap: 26px;
@@ -424,9 +507,9 @@ button {
 }
 
 
-/* ========================================
-   ACADEMIC SIDE CARDS
-   ======================================== */
+/* =========================================================
+   BACHELOR / MASTER SIDE PANELS
+   ========================================================= */
 
 .academic-side {
   width: 100%;
@@ -434,13 +517,17 @@ button {
 
   padding: 26px;
 
-  background: #f7f9fc;
-
-  border: 1px solid var(--line);
+  border: 1px solid #dce5ef;
   border-radius: 18px;
 
-  box-shadow:
-    0 8px 24px rgba(8, 47, 99, 0.05);
+  background:
+    linear-gradient(
+      145deg,
+      #f7faff 0%,
+      #f1f5fa 100%
+    );
+
+  box-shadow: var(--shadow-small);
 }
 
 .academic-side-header {
@@ -452,7 +539,7 @@ button {
   padding-bottom: 20px;
   margin-bottom: 22px;
 
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #dce4ed;
 }
 
 .academic-number {
@@ -476,7 +563,12 @@ button {
 }
 
 .master-number {
-  background: var(--gold);
+  background:
+    linear-gradient(
+      145deg,
+      #c79a43,
+      #b3832e
+    );
 }
 
 .academic-side-header small {
@@ -487,6 +579,7 @@ button {
   color: var(--muted);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 11px;
   font-weight: 600;
 
@@ -499,14 +592,15 @@ button {
   color: var(--navy);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 26px;
   font-weight: 600;
 }
 
 
-/* ========================================
+/* =========================================================
    PROGRAMS
-   ======================================== */
+   ========================================================= */
 
 .program-departments {
   display: flex;
@@ -523,20 +617,22 @@ button {
   margin-top: 28px;
   padding-top: 24px;
 
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #dce4ed;
 }
 
 .program-category-title,
 .master-type {
   margin: 0 0 16px;
 
-  color: var(--gold);
+  color: #b78326;
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 700;
 
   text-transform: uppercase;
+
   letter-spacing: 0.07em;
 }
 
@@ -562,10 +658,11 @@ button {
   color: var(--navy);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 16px;
   font-weight: 600;
 
-  line-height: 1.4;
+  line-height: 1.42;
 }
 
 .program-item {
@@ -575,20 +672,25 @@ button {
 
   padding:
     13px
-    12px
+    13px
     13px
     32px;
 
-  background: var(--white);
-
-  border: 1px solid #e1e7ee;
+  border: 1px solid #e0e7ef;
   border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
 
   color: var(--text);
 
   font-size: 14px;
   font-weight: 500;
+
   line-height: 1.48;
+
+  box-shadow:
+    0 3px 10px rgba(8, 47, 99, 0.025);
 }
 
 .program-item::before {
@@ -610,10 +712,12 @@ button {
 .program-empty {
   padding: 20px 14px;
 
-  background: var(--white);
+  border:
+    1px dashed #cbd6e2;
 
-  border: 1px dashed #cbd6e2;
   border-radius: 11px;
+
+  background: var(--white);
 
   color: #76869a;
 
@@ -624,14 +728,17 @@ button {
 }
 
 
-/* ========================================
+/* =========================================================
    SECRETARIAT
-   ======================================== */
+   ========================================================= */
 
 .secretariat-center {
   width: 100%;
   min-width: 0;
 }
+
+
+/* STAFF GROUP */
 
 .staff-group {
   margin-top: 34px;
@@ -644,7 +751,8 @@ button {
 .staff-group + .staff-group {
   padding-top: 30px;
 
-  border-top: 1px solid var(--line);
+  border-top:
+    1px solid var(--line);
 }
 
 .staff-group-heading {
@@ -657,6 +765,7 @@ button {
   color: var(--navy);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 17px;
   font-weight: 600;
 
@@ -666,9 +775,7 @@ button {
 }
 
 
-/* ========================================
-   STAFF GRID
-   ======================================== */
+/* STAFF GRID */
 
 .staff-group-grid {
   width: 100%;
@@ -682,9 +789,9 @@ button {
 }
 
 
-/* ========================================
-   STAFF CARD
-   ======================================== */
+/* =========================================================
+   STAFF CARDS
+   ========================================================= */
 
 .staff-card {
   min-width: 0;
@@ -692,23 +799,33 @@ button {
 
   padding: 30px;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid #d9e4f0;
+
   border-radius: 18px;
 
-  background: var(--white);
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f7faff 100%
+    );
 
   box-shadow:
-    0 6px 20px rgba(8,47,99,.04);
+    0 8px 22px rgba(8, 47, 99, 0.06);
 
   transition:
-    transform .2s,
-    box-shadow .2s;
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .staff-card:hover {
   transform: translateY(-3px);
 
-  box-shadow: var(--shadow);
+  border-color: #c9d8e8;
+
+  box-shadow: var(--shadow-medium);
 }
 
 
@@ -716,24 +833,48 @@ button {
 
 .staff-card.chief {
   width: 100%;
-  max-width: none;
 
   min-height: 165px;
 
-  border-left: 5px solid var(--gold);
+  border-left:
+    6px solid var(--gold);
 
   background:
     linear-gradient(
       135deg,
-      #ffffff,
-      #f8fafc
+      #fffdf8 0%,
+      #f7faff 100%
     );
 }
 
 
-/* ========================================
-   STAFF DETAILS
-   ======================================== */
+/* SEKRETARE */
+
+.staff-group:nth-of-type(2) .staff-card {
+  border-top:
+    3px solid rgba(8, 47, 99, 0.72);
+}
+
+
+/* PROTOKOLL & ARKIV */
+
+.staff-group:nth-of-type(3) .staff-card {
+  border-top:
+    3px solid #758ba2;
+}
+
+
+/* ASISTENCA E DEKANIT */
+
+.staff-group:nth-of-type(4) .staff-card {
+  border-top:
+    3px solid #ad8a4c;
+}
+
+
+/* =========================================================
+   STAFF PERSON CONTENT
+   ========================================================= */
 
 .staff-person {
   display: flex;
@@ -755,17 +896,23 @@ button {
 
   border-radius: 50%;
 
-  background: #edf3fa;
+  background: #eaf1f9;
 
   color: var(--navy);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 18px;
   font-weight: 700;
 }
 
 .chief .staff-avatar {
-  background: var(--navy);
+  background:
+    linear-gradient(
+      145deg,
+      var(--navy),
+      #10447f
+    );
 
   color: var(--white);
 }
@@ -780,6 +927,7 @@ button {
   color: var(--text);
 
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 23px;
   font-weight: 600;
 
@@ -795,6 +943,7 @@ button {
 
   font-size: 17px;
   font-weight: 500;
+
   line-height: 1.45;
 }
 
@@ -809,16 +958,18 @@ button {
 
   font-size: 16px;
   font-weight: 500;
+
   line-height: 1.5;
 }
 
 
-/* ========================================
+/* =========================================================
    FOOTER
-   ======================================== */
+   ========================================================= */
 
 .site-footer {
-  padding: 36px 0;
+  padding-top: 36px;
+  padding-bottom: 36px;
 
   background: var(--navy-dark);
 
@@ -842,26 +993,29 @@ button {
 
 .footer-content strong {
   font-family: "Montserrat", Arial, sans-serif;
+
   font-size: 24px;
   font-weight: 700;
 }
 
 .footer-content span {
-  color: rgba(255,255,255,.72);
+  color:
+    rgba(255, 255, 255, 0.72);
 
   font-size: 12px;
 }
 
 
-/* ========================================
-   LAPTOP
-   ======================================== */
+/* =========================================================
+   LARGE LAPTOP / SMALL DESKTOP
+   ========================================================= */
 
 @media (max-width: 1300px) {
 
   .container,
   .faculty-workspace {
-    width: calc(100% - 32px);
+    width:
+      calc(100% - 32px);
   }
 
 
@@ -881,21 +1035,40 @@ button {
 
 
   .staff-group-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 
 }
 
 
-/* ========================================
+/* =========================================================
    TABLET
-   ======================================== */
+   ========================================================= */
 
 @media (max-width: 950px) {
 
   .faculty-tabs {
     grid-template-columns:
       repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+
+    overflow: visible;
+
+    border: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+  }
+
+
+  .faculty-tab {
+    border:
+      1px solid var(--line) !important;
+
+    border-radius: 14px;
   }
 
 
@@ -906,7 +1079,9 @@ button {
 
 
   .secretariat-center {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
+
     grid-row: 1;
   }
 
@@ -931,25 +1106,42 @@ button {
 }
 
 
-/* ========================================
+/* =========================================================
    MOBILE
-   ======================================== */
+   ========================================================= */
 
 @media (max-width: 700px) {
 
+  /* -------------------------
+     CONTAINER
+     ------------------------- */
+
   .container,
   .faculty-workspace {
-    width: calc(100% - 24px);
+    width:
+      calc(100% - 24px);
   }
 
 
+  /* -------------------------
+     HEADER
+     ------------------------- */
+
   .header-inner {
-    min-height: 70px;
+    min-height: 68px;
+  }
+
+
+  .brand-mark {
+    width: 38px;
+    height: 43px;
+
+    font-size: 23px;
   }
 
 
   .brand-name {
-    font-size: 25px;
+    font-size: 24px;
   }
 
 
@@ -958,332 +1150,60 @@ button {
   }
 
 
+  /* -------------------------
+     HERO
+     ------------------------- */
+
   .hero {
-    min-height: 255px;
+    min-height: 218px;
   }
 
 
   .hero-content {
-    padding: 44px 0;
+    padding-top: 34px;
+    padding-bottom: 36px;
   }
 
-
-  .hero h1 {
-    font-size: 41px;
-  }
-
-
-  .hero p {
-    font-size: 15px;
-  }
-
-
-  .faculty-tabs {
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-
-    overflow: visible;
-
-    border: 0;
-  }
-
-
-  .faculty-tab {
-    min-height: 120px;
-
-    border: 1px solid var(--line) !important;
-    border-radius: 14px;
-  }
-
-
-  .faculty-heading {
-    align-items: flex-start;
-  }
-
-
-  .faculty-code {
-    width: 62px;
-    height: 62px;
-
-    font-size: 17px;
-  }
-
-
-  .faculty-heading h2 {
-    font-size: 29px;
-  }
-
-
-  .faculty-main-grid {
-    grid-template-columns: 1fr;
-
-    gap: 20px;
-  }
-
-
-  .secretariat-center {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-
-  .bachelor-side {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-
-  .master-side {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-
-  .staff-group-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  .staff-card {
-    min-height: auto;
-
-    padding: 22px;
-  }
-
-
-  .staff-card.chief {
-    min-height: auto;
-  }
-
-
-  .staff-avatar {
-    width: 58px;
-    height: 58px;
-
-    flex-basis: 58px;
-
-    font-size: 14px;
-  }
-
-
-  .staff-details h4 {
-    font-size: 18px;
-  }
-
-
-  .staff-role {
-    font-size: 14px;
-  }
-
-
-  .staff-details a {
-    font-size: 13px;
-  }
-
-
-  .academic-side {
-    padding: 21px;
-  }
-
-
-  .footer-content {
-    align-items: flex-start;
-
-    flex-direction: column;
-  }
-
-}
-/* ========================================
-   CAMPUS BACKGROUND
-   ======================================== */
-
-main {
-  position: relative;
-  overflow: hidden;
-}
-
-.campus-background {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  top: 600px;
-
-  height: 1000px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  z-index: 0;
-
-  pointer-events: none;
-
-  opacity: 0.10;
-}
-
-.campus-background::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      white 0%,
-      rgba(255,255,255,.70) 18%,
-      rgba(255,255,255,.82) 70%,
-      white 100%
-    );
-}
-
-.campus-photo {
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(15%);
-}
-
-.campus-photo-1 {
-  background-image: url("assets/godina-1.jpg");
-}
-
-.campus-photo-2 {
-  background-image: url("assets/godina-2.jpg");
-}
-
-.campus-photo-3 {
-  background-image: url("assets/godina-3.jpg");
-}
-
-.campus-photo-4 {
-  background-image: url("assets/godina-4.jpg");
-}
-
-
-/* përmbajtja mbi background */
-
-.faculty-section,
-.faculty-workspace {
-  position: relative;
-  z-index: 2;
-}
-/* ========================================
-   STAFF CARD HIGHLIGHTS
-   ======================================== */
-
-.staff-card {
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #f8fbff 100%
-    );
-
-  border:
-    1px solid #d9e4f0;
-
-  box-shadow:
-    0 8px 22px rgba(8,47,99,.06);
-}
-
-
-/* KRYESEKRETARIA */
-
-.staff-card.chief {
-  border-left:
-    6px solid var(--gold);
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffdf8 0%,
-      #f7faff 100%
-    );
-}
-
-
-/* SEKRETARIA */
-
-.staff-group:nth-of-type(2) .staff-card {
-  border-top:
-    3px solid rgba(8,47,99,.75);
-}
-
-
-/* PROTOKOLL & ARKIVË */
-
-.staff-group:nth-of-type(3) .staff-card {
-  border-top:
-    3px solid #70849a;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #f6f8fb
-    );
-}
-
-
-/* ASISTENCA E DEKANIT */
-
-.staff-group:nth-of-type(4) .staff-card {
-  border-top:
-    3px solid #9a7a43;
-}
-
-
-/* HOVER */
-
-.staff-card:hover {
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 14px 32px rgba(8,47,99,.12);
-}
-
-/* ========================================
-   MOBILE UX IMPROVEMENTS
-   ======================================== */
-
-@media (max-width: 700px) {
-
-  /* HERO më kompakt */
-  .hero {
-    min-height: 220px;
-  }
-
-  .hero-content {
-    padding: 34px 0 36px;
-  }
 
   .eyebrow {
-    font-size: 11px;
     margin-bottom: 10px;
+
+    font-size: 10px;
   }
+
 
   .hero h1 {
-    font-size: 36px;
-    line-height: 1.02;
     margin-bottom: 14px;
+
+    font-size: 35px;
+
+    line-height: 1.04;
   }
+
 
   .hero p {
-    font-size: 14px;
-    line-height: 1.5;
     max-width: 100%;
+
+    font-size: 14px;
+
+    line-height: 1.5;
   }
 
 
-  /* ZGJIDH FAKULTETIN */
+  /* -------------------------
+     FACULTY SELECTOR
+     ------------------------- */
+
   .faculty-section {
-    padding: 28px 0 20px;
+    padding-top: 27px;
+    padding-bottom: 20px;
   }
+
+
+  .faculty-section > .section-label {
+    font-size: 11px;
+  }
+
 
   .faculty-tabs {
     display: grid;
@@ -1293,89 +1213,140 @@ main {
 
     gap: 10px;
 
+    margin-top: 15px;
+
     border: 0;
-    background: transparent;
 
     overflow: visible;
+
+    background: transparent;
+
+    box-shadow: none;
   }
 
+
   .faculty-tab {
-    min-height: 105px;
+    min-height: 103px;
 
-    padding: 16px 10px;
+    padding:
+      14px 10px;
 
-    border: 1px solid var(--line) !important;
+    border:
+      1px solid var(--line) !important;
+
     border-radius: 14px;
 
     background: var(--white);
   }
 
+
   .faculty-tab:last-child {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
   }
+
 
   .faculty-tab .icon {
+    margin-bottom: 5px;
+
     font-size: 23px;
-    margin-bottom: 6px;
   }
+
 
   .faculty-tab strong {
+    margin-bottom: 3px;
+
     font-size: 18px;
-    margin-bottom: 4px;
   }
+
 
   .faculty-tab span {
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 10.5px;
+
+    line-height: 1.3;
   }
 
 
-  /* TITULLI I FAKULTETIT */
+  /* -------------------------
+     FACULTY HEADING
+     ------------------------- */
+
   .faculty-workspace {
     padding-top: 18px;
+    padding-bottom: 45px;
   }
 
+
   .faculty-heading {
-    gap: 14px;
+    align-items: flex-start;
+
+    gap: 13px;
+
     margin-bottom: 24px;
   }
 
+
   .faculty-code {
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
 
-    border-radius: 13px;
+    flex-basis: 52px;
 
-    font-size: 16px;
+    border-radius: 12px;
+
+    font-size: 15px;
   }
+
 
   .faculty-heading .section-label {
-    font-size: 10px;
+    font-size: 9px;
+
+    line-height: 1.2;
   }
+
+
+  .faculty-heading .section-label::before {
+    width: 22px;
+
+    flex-basis: 22px;
+  }
+
 
   .faculty-heading h2 {
-    font-size: 26px;
-    line-height: 1.15;
     margin-top: 5px;
+
+    font-size: 25px;
+
+    line-height: 1.15;
   }
 
 
-  /* SEKRETARIA E PARA NË MOBILE */
+  /* -------------------------
+     MAIN MOBILE ORDER
+     STAFF FIRST
+     ------------------------- */
+
   .faculty-main-grid {
     display: grid;
-    grid-template-columns: 1fr;
+
+    grid-template-columns:
+      1fr;
+
     gap: 20px;
   }
+
 
   .secretariat-center {
     grid-column: 1;
     grid-row: 1;
   }
 
+
   .bachelor-side {
     grid-column: 1;
     grid-row: 2;
   }
+
 
   .master-side {
     grid-column: 1;
@@ -1383,45 +1354,67 @@ main {
   }
 
 
-  /* GRUPET E STAFIT */
+  /* -------------------------
+     STAFF GROUPS
+     ------------------------- */
+
   .staff-group {
     margin-top: 24px;
   }
 
-  .staff-group + .staff-group {
-    padding-top: 22px;
+
+  .staff-group:first-child {
+    margin-top: 0;
   }
+
+
+  .staff-group + .staff-group {
+    padding-top: 21px;
+  }
+
 
   .staff-group-heading {
-    margin-bottom: 13px;
+    margin-bottom: 12px;
   }
+
 
   .staff-group-heading h3 {
-    font-size: 16px;
+    font-size: 15px;
+
+    line-height: 1.3;
   }
 
 
-  /* CARDS STAFF */
   .staff-group-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
+
     gap: 12px;
   }
 
-  .staff-card {
-    padding: 18px;
 
-    min-height: auto;
+  /* -------------------------
+     STAFF CARD
+     ------------------------- */
+
+  .staff-card {
+    min-height: 0;
+
+    padding: 18px;
 
     border-radius: 15px;
   }
 
+
   .staff-card.chief {
-    min-height: auto;
+    min-height: 0;
   }
 
+
   .staff-person {
-    gap: 15px;
+    gap: 14px;
   }
+
 
   .staff-avatar {
     width: 52px;
@@ -1432,35 +1425,42 @@ main {
     font-size: 13px;
   }
 
-  .staff-details h4 {
-    font-size: 18px;
 
+  .staff-details h4 {
     margin-bottom: 5px;
+
+    font-size: 18px;
 
     line-height: 1.2;
   }
 
+
   .staff-role {
+    margin-bottom: 8px;
+
     font-size: 14px;
 
-    margin-bottom: 8px;
+    line-height: 1.35;
   }
+
 
   .staff-details a {
     font-size: 13px;
 
-    line-height: 1.4;
-
-    overflow-wrap: anywhere;
+    line-height: 1.35;
   }
 
 
-  /* BACHELOR / MASTER */
+  /* -------------------------
+     ACADEMIC SIDE
+     ------------------------- */
+
   .academic-side {
     padding: 18px;
 
     border-radius: 15px;
   }
+
 
   .academic-side-header {
     gap: 12px;
@@ -1469,69 +1469,152 @@ main {
     margin-bottom: 16px;
   }
 
-  .academic-number {
-    width: 48px;
-    height: 48px;
 
-    flex-basis: 48px;
+  .academic-number {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
 
     font-size: 14px;
   }
 
-  .academic-side-header h3 {
-    font-size: 23px;
-  }
 
   .academic-side-header small {
-    font-size: 10px;
+    font-size: 9px;
   }
 
 
-  /* PROGRAMET */
+  .academic-side-header h3 {
+    font-size: 22px;
+  }
+
+
+  /* -------------------------
+     PROGRAMS
+     ------------------------- */
+
   .program-category-title,
   .master-type {
-    font-size: 11px;
+    margin-bottom: 11px;
 
-    margin-bottom: 12px;
+    font-size: 10.5px;
   }
 
-  .department-name {
-    font-size: 16px;
 
-    margin-bottom: 9px;
+  .secondary-category {
+    margin-top: 22px;
+    padding-top: 19px;
+  }
+
+
+  .department-block {
+    padding-bottom: 14px;
+  }
+
+
+  .department-block + .department-block {
+    margin-top: 14px;
+  }
+
+
+  .department-name {
+    margin-bottom: 8px;
+
+    font-size: 15px;
 
     line-height: 1.35;
   }
 
-  .department-block {
-    padding-bottom: 15px;
-  }
-
-  .department-block + .department-block {
-    margin-top: 15px;
-  }
 
   .program-item {
-    padding:
-      11px
-      10px
-      11px
-      28px;
-
     margin-top: 7px;
 
-    font-size: 14px;
-    line-height: 1.4;
+    padding:
+      10px
+      9px
+      10px
+      27px;
 
     border-radius: 9px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
   }
 
+
   .program-item::before {
-    left: 12px;
-    top: 17px;
+    left: 11px;
+    top: 15px;
 
     width: 5px;
     height: 5px;
+  }
+
+
+  /* -------------------------
+     FOOTER
+     ------------------------- */
+
+  .site-footer {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+
+  .footer-content {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .faculty-tabs {
+    gap: 8px;
+  }
+
+
+  .faculty-tab {
+    min-height: 96px;
+
+    padding:
+      12px 7px;
+  }
+
+
+  .faculty-tab span {
+    font-size: 9.5px;
+  }
+
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+
+  .faculty-heading h2 {
+    font-size: 23px;
+  }
+
+
+  .staff-details h4 {
+    font-size: 17px;
+  }
+
+
+  .staff-details a {
+    font-size: 12px;
   }
 
 }
