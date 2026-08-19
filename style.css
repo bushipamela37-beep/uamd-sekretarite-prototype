@@ -1246,3 +1246,292 @@ main {
   box-shadow:
     0 14px 32px rgba(8,47,99,.12);
 }
+
+/* ========================================
+   MOBILE UX IMPROVEMENTS
+   ======================================== */
+
+@media (max-width: 700px) {
+
+  /* HERO më kompakt */
+  .hero {
+    min-height: 220px;
+  }
+
+  .hero-content {
+    padding: 34px 0 36px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.02;
+    margin-bottom: 14px;
+  }
+
+  .hero p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+
+  /* ZGJIDH FAKULTETIN */
+  .faculty-section {
+    padding: 28px 0 20px;
+  }
+
+  .faculty-tabs {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    border: 0;
+    background: transparent;
+
+    overflow: visible;
+  }
+
+  .faculty-tab {
+    min-height: 105px;
+
+    padding: 16px 10px;
+
+    border: 1px solid var(--line) !important;
+    border-radius: 14px;
+
+    background: var(--white);
+  }
+
+  .faculty-tab:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .faculty-tab .icon {
+    font-size: 23px;
+    margin-bottom: 6px;
+  }
+
+  .faculty-tab strong {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .faculty-tab span {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+
+  /* TITULLI I FAKULTETIT */
+  .faculty-workspace {
+    padding-top: 18px;
+  }
+
+  .faculty-heading {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .faculty-code {
+    width: 54px;
+    height: 54px;
+
+    border-radius: 13px;
+
+    font-size: 16px;
+  }
+
+  .faculty-heading .section-label {
+    font-size: 10px;
+  }
+
+  .faculty-heading h2 {
+    font-size: 26px;
+    line-height: 1.15;
+    margin-top: 5px;
+  }
+
+
+  /* SEKRETARIA E PARA NË MOBILE */
+  .faculty-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .secretariat-center {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .bachelor-side {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .master-side {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+
+  /* GRUPET E STAFIT */
+  .staff-group {
+    margin-top: 24px;
+  }
+
+  .staff-group + .staff-group {
+    padding-top: 22px;
+  }
+
+  .staff-group-heading {
+    margin-bottom: 13px;
+  }
+
+  .staff-group-heading h3 {
+    font-size: 16px;
+  }
+
+
+  /* CARDS STAFF */
+  .staff-group-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .staff-card {
+    padding: 18px;
+
+    min-height: auto;
+
+    border-radius: 15px;
+  }
+
+  .staff-card.chief {
+    min-height: auto;
+  }
+
+  .staff-person {
+    gap: 15px;
+  }
+
+  .staff-avatar {
+    width: 52px;
+    height: 52px;
+
+    flex-basis: 52px;
+
+    font-size: 13px;
+  }
+
+  .staff-details h4 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+
+    line-height: 1.2;
+  }
+
+  .staff-role {
+    font-size: 14px;
+
+    margin-bottom: 8px;
+  }
+
+  .staff-details a {
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* BACHELOR / MASTER */
+  .academic-side {
+    padding: 18px;
+
+    border-radius: 15px;
+  }
+
+  .academic-side-header {
+    gap: 12px;
+
+    padding-bottom: 15px;
+    margin-bottom: 16px;
+  }
+
+  .academic-number {
+    width: 48px;
+    height: 48px;
+
+    flex-basis: 48px;
+
+    font-size: 14px;
+  }
+
+  .academic-side-header h3 {
+    font-size: 23px;
+  }
+
+  .academic-side-header small {
+    font-size: 10px;
+  }
+
+
+  /* PROGRAMET */
+  .program-category-title,
+  .master-type {
+    font-size: 11px;
+
+    margin-bottom: 12px;
+  }
+
+  .department-name {
+    font-size: 16px;
+
+    margin-bottom: 9px;
+
+    line-height: 1.35;
+  }
+
+  .department-block {
+    padding-bottom: 15px;
+  }
+
+  .department-block + .department-block {
+    margin-top: 15px;
+  }
+
+  .program-item {
+    padding:
+      11px
+      10px
+      11px
+      28px;
+
+    margin-top: 7px;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    border-radius: 9px;
+  }
+
+  .program-item::before {
+    left: 12px;
+    top: 17px;
+
+    width: 5px;
+    height: 5px;
+  }
+
+}
